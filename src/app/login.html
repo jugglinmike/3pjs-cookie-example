@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>"Twitter" login</title>
+	</head>
+	<body>
+		<form action="#">
+			<label for="name">Name</label>
+			<input id="name" />
+			<label for="passwd">Password</label>
+			<input type="password" id="passwd" />
+
+			<input type="submit">
+		</form>
+
+		<script>
+			var submit = document.querySelector('[type="submit"]');
+
+			submit.addEventListener('click', function() {
+				if (window.opener) {
+					document.cookie = 'via-new-window=true;';
+
+					window.opener.postMessage({ msg: 'closeme' }, '*');
+				}
+			});
+		</script>
+	</body>
+</html>
